@@ -1,0 +1,12 @@
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\bin\Debug\net10.0\AcmeCorporation.Core.deps.json
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\bin\Debug\net10.0\AcmeCorporation.Core.dll
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\bin\Debug\net10.0\AcmeCorporation.Core.pdb
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\AcmeCorporation.Core.csproj.AssemblyReference.cache
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\AcmeCorporation.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\AcmeCorporation.Core.AssemblyInfoInputs.cache
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\AcmeCorporation.Core.AssemblyInfo.cs
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\AcmeCorporation.Core.csproj.CoreCompileInputs.cache
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\AcmeCorporation.Core.dll
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\refint\AcmeCorporation.Core.dll
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\AcmeCorporation.Core.pdb
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Core\obj\Debug\net10.0\ref\AcmeCorporation.Core.dll
