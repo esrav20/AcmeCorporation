@@ -4,10 +4,10 @@ public class SerialNumberGen
 {
     public static List<string> Generate(int count = 100)
     {
-        var serialNumbers = new List<String>();
+        var serialNumbers = new List<string>();
         var random = new Random();
 
-        foreach (var VARIABLE in serialNumbers)
+        for (var i = 0; i < count; i++) 
         {
             var serial = $"ACME-{GenerateSegment(random)}-{GenerateSegment(random)}-{GenerateSegment(random)}";
             serialNumbers.Add(serial);

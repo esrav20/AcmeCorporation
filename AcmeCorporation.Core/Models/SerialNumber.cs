@@ -8,7 +8,7 @@ public class SerialNumber
     
     [Required]
     [StringLength(50)]
-    public string SN { get; set; } = string.Empty;
+    public string Number { get; set; } = string.Empty;
 
     public int UseCount { get; set; } = 0;
     

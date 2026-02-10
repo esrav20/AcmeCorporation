@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AcmeCorporation.Core.Models;
+﻿using AcmeCorporation.Core.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace AcmeCorporation.Core.Data;
 
-public class AcmeDbContext : DbContext
+public class DbContext : IdentityDbContext<User>
 {
-    public AcmeDbContext(DbContextOptions<AcmeDbContext> options) 
+    public DbContext(DbContextOptions<DbContext> options) 
         : base(options)
     {
     }
@@ -22,12 +23,17 @@ public class AcmeDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.HasIndex(e => e.Email);
             entity.HasIndex(e => e.SerialNumber);
+            
+            entity.HasOne<User>()
+                .WithMany(u => u.Submissions)
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<SerialNumber>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.HasIndex(e => e.SN).IsUnique();
+            entity.HasIndex(e => e.Number).IsUnique();
         });
     }
 }

@@ -224,3 +224,5 @@ C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10
 C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\AcmeCorporation.Web.pdb
 C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\AcmeCorporation.Web.genruntimeconfig.cache
 C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\ref\AcmeCorporation.Web.dll
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\AcmeCorporation.Web.sourcelink.json
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
