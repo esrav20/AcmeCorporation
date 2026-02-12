@@ -16,4 +16,5 @@ public class SerialNumber
     
     public bool IsValid =>  UseCount < MaxUseCount;
 
+    public ICollection<DrawSubmission> Submissions { get; set; } = new List<DrawSubmission>();
 }

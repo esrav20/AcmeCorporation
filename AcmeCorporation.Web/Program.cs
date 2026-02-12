@@ -1,27 +1,30 @@
-using AcmeCorporation.Core.Data;
-using AcmeCorporation.Core.Models;
 using Microsoft.AspNetCore.Identity;
-using SqlServerDbContextOptionsExtensions = Microsoft.EntityFrameworkCore.SqlServerDbContextOptionsExtensions;
+using Microsoft.EntityFrameworkCore;
+using AcmeCorporation.Web.Data;
+using AcmeCorporation.Core.Models;
+using AcmeCorporation.Core.Interfaces;
+using AcmeCorporation.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// === Services ===
 builder.Services.AddControllersWithViews();
 
-// DbContext
-EntityFrameworkServiceCollectionExtensions.AddDbContext<DbContext>(builder.Services, options =>
-    SqlServerDbContextOptionsExtensions.UseSqlServer(options, ConfigurationExtensions.GetConnectionString(builder.Configuration, "DefaultConnection")));
+// EF Core + SQL Server
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
-IdentityEntityFrameworkBuilderExtensions
-    .AddEntityFrameworkStores<DbContext>(builder.Services.AddIdentity<User, IdentityRole>(options =>
-    {
-        options.Password.RequireDigit = true;
-        options.Password.RequiredLength = 8;
-        options.Password.RequireNonAlphanumeric = true;
-        options.User.RequireUniqueEmail = true;
-
-    }))
-    .AddDefaultTokenProviders();
+// Identity (brugere separat fra forretningsdata)
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 8;
+    options.Password.RequireNonAlphanumeric = true;
+    options.User.RequireUniqueEmail = true;
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -29,28 +32,45 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
+// DI: Registrér services (IoC bonus point)
+// builder.Services.AddScoped<ISerialNumberService, SerialNumberService>();
+// builder.Services.AddScoped<IDrawService, DrawService>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// === Pipeline ===
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
-app.UseAuthentication();
+app.UseAuthentication(); 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
 app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    name: "default",
+    pattern: "{controller=Draw}/{action=Index}/{id?}");
 
+// === Seed serial numbers ===
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    context.Database.Migrate(); // Kører evt. pending migrations
+
+    if (!context.SerialNumbers.Any())
+    {
+        var numbers = AcmeCorporation.Core.Services.SerialNumberGenerator.Generate(100);
+        foreach (var num in numbers)
+        {
+            context.SerialNumbers.Add(new SerialNumber { Number = num });
+        }
+        await context.SaveChangesAsync();
+    }
+}
 
 app.Run();

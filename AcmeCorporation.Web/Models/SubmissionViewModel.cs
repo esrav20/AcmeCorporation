@@ -1,33 +1,31 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
+namespace AcmeCorporation.Web.Models;
 
-namespace AcmeCorporation.Core.Models;
-
-
-public class Submission
+public class SubmissionViewModel
 {
-    public int Id { get; set; }
-    
     [Required]
     [StringLength(100)]
+    [Display(Name = "First Name")]
     public string FirstName { get; set; } = string.Empty;
-    
+
     [Required]
-    [StringLength(100)]
+    [ StringLength(100)]
+    [Display(Name = "Last Name")]
     public string LastName { get; set; } = string.Empty;
-    
+
     [Required]
     [EmailAddress]
     [StringLength(255)]
+    [Display(Name = "Email Address")]
     public string Email { get; set; } = string.Empty;
-    
+
     [Required]
+    [Display(Name = "Product Serial Number")]
     public string SerialNumber { get; set; } = string.Empty;
-    
-    public DateTime SubmissionDate { get; set; }
-    
+
     [Required]
-    public string UserId { get; set; } = string.Empty;
-    
+    [DataType(DataType.Date)]
+    [Display(Name = "Date of Birth")]
+    public DateTime DateOfBirth { get; set; }
 }
