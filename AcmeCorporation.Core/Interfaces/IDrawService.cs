@@ -6,7 +6,7 @@ public record DrawEntry(
     string Email,
     DateTime DateOfBirth,
     string SerialNumber,
-    string userId);
+    string UserId);
 
 public record DrawResult(
     bool Success,
