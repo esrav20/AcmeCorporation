@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AcmeCorporation.Core.Models;
+namespace AcmeCorporation.Core.Data;
 
 public class SerialNumber
 {
