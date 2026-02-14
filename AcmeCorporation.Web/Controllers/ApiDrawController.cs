@@ -18,15 +18,13 @@ public class ApiDrawController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Submit([FromBody] ApiDrawRequest request)
     {
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
         var entry = new DrawEntry(
             request.FirstName,
             request.LastName,
             request.Email,
             request.DateOfBirth,
-            request.SerialNumber,
-            userId);
+            request.SerialNumber);
 
         var result = await _drawService.SubmitEntryAsync(entry);
         
