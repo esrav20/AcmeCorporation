@@ -12,7 +12,7 @@ public class SerialNumber
 
     public int UseCount { get; set; } = 0;
     
-    public int MaxUseCount { get; set; } = 2;
+    public int MaxUseCount { get; set; } = 1;
     
     public bool IsValid =>  UseCount < MaxUseCount;
 
