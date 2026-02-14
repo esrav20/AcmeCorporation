@@ -9,27 +9,40 @@ namespace AcmeCorporation.Web.Services;
 public class DrawService : IDrawService
 {
     private readonly AppDbContext _dbContext;
-    private readonly ISerialNumberService _serialNumberService;
 
-    public DrawService(AppDbContext dbContext, ISerialNumberService serialNumberService)
+    public DrawService(AppDbContext dbContext)
     {
         _dbContext = dbContext;
-        _serialNumberService = serialNumberService;
     }
 
     public async Task<DrawResult> SubmitEntryAsync(DrawEntry entry)
     {
+        // Find serial number in Database
+        var serial = await _dbContext.SerialNumbers.FirstOrDefaultAsync(s => s.Number == entry.SerialNumber);
+        
+        // is serial number valid?
+        if (serial == null)
+            return new DrawResult(false, "SerialNumber", "Serial number not found");
+        
+        // has serial number already been used? (MaxUseCount = 1)
+        if (!serial.IsValid)
+            return new DrawResult(false, "SerialNumber", "Serial number has already been used");
+        
+        // has the user already entered more than once?
+        if (entry.UserId != null)
+        {
+            var userEntryCount = await _dbContext.Submissions
+                .CountAsync(s => s.UserId == entry.UserId);
+
+            if (userEntryCount >= 2)
+                return new DrawResult(false, "UserId", "You have already entered the draw twice.");
+        }
+        
         // Check Age
         if (!AgeValidator.IsAdult(entry.DateOfBirth))
             return new DrawResult(false, "DateOfBirth", "You must be at least 18 years old to enter");
-
-        // Check if Serial Number is valid
-        if (!await _serialNumberService.IsValidAsync(entry.SerialNumber))
-            return new DrawResult(false, "SerialNumber", "Invalid Serial number");
         
-        // Check if Serial Number is usable
-        if (!await _serialNumberService.IsUsableAsync(entry.SerialNumber))
-            return new DrawResult(false, "SerialNumber", "Max entries for this serial number has been reached");
+        
         
         // If everything is alright, put serial number into submission
         var serialNumber = await _dbContext.SerialNumbers
@@ -49,7 +62,9 @@ public class DrawService : IDrawService
         _dbContext.Submissions.Add(submission);
         
         // Increment the use count for serial number
-        await _serialNumberService.IncrementUseCountAsync(entry.SerialNumber);
+        serial.UseCount++;
+        
+        await _dbContext.SaveChangesAsync();
 
         return new DrawResult(true, null, null);
     }
