@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-
-namespace AcmeCorporation.Core.Models;
+namespace AcmeCorporation.Core.Data;
 
 
 public class DrawSubmission
@@ -30,8 +28,5 @@ public class DrawSubmission
     // FK → SerialNumber
     public int SerialNumberId { get; set; }
     public SerialNumber SerialNumber { get; set; } = null!;
-
-    // FK → ApplicationUser
-    public string? UserId { get; set; }
-    public ApplicationUser? User { get; set; }
+    
 }

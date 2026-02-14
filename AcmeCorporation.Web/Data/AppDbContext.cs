@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AcmeCorporation.Core.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using AcmeCorporation.Core.Models;
 
 namespace AcmeCorporation.Web.Data;
 
@@ -25,12 +25,6 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
                 .WithMany(s => s.Submissions)
                 .HasForeignKey(e => e.SerialNumberId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            // Relation: Submission → User
-            entity.HasOne(e => e.User)
-                .WithMany(u => u.Submissions)
-                .HasForeignKey(e => e.UserId)
-                .OnDelete(DeleteBehavior.SetNull);
         });
 
         modelBuilder.Entity<SerialNumber>(entity =>

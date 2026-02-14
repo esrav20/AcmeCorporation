@@ -1,9 +1,9 @@
+using AcmeCorporation.Core.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AcmeCorporation.Web.Data;
-using AcmeCorporation.Core.Models;
 using AcmeCorporation.Core.Interfaces;
-using AcmeCorporation.Core.Services;
+using AcmeCorporation.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Identity (brugere separat fra forretningsdata)
+// Identity 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -32,13 +32,13 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
-// DI: Registrér services (IoC bonus point)
-// builder.Services.AddScoped<ISerialNumberService, SerialNumberService>();
-// builder.Services.AddScoped<IDrawService, DrawService>();
+// Dependency INjection
+builder.Services.AddScoped<ISerialNumberService, SerialNumberService>();
+builder.Services.AddScoped<IDrawService, DrawService>();
 
 var app = builder.Build();
 
-// === Pipeline ===
+// Pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -49,6 +49,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+// Auth for users
 app.UseAuthentication(); 
 app.UseAuthorization();
 
@@ -56,11 +57,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Draw}/{action=Index}/{id?}");
 
-// === Seed serial numbers ===
+// Seeding serial number
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    context.Database.Migrate(); // Kører evt. pending migrations
+    context.Database.Migrate(); // Adds pending migrations, if any
 
     if (!context.SerialNumbers.Any())
     {
