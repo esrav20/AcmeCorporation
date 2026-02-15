@@ -11,12 +11,12 @@
             <p class="text-muted mb-4">Fill in your details and product serial number</p>
             <hr/>
 
-            <div id="ajax-alert" class="alert d-none" role ="alert"></div>
+            <div id="ajax-alert" class="alert d-none" role="alert"></div>
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-            
+
             <form id="draw-form" asp-action="Index" method="post">
                 @Html.AntiForgeryToken()
-                
+
                 <div class="mb-3">
                     <label asp-for="FirstName" class="form-label"></label>
                     <input asp-for="FirstName" class="form-control"/>
@@ -37,7 +37,8 @@
 
                 <div class="mb-3">
                     <label asp-for="SerialNumber" class="form-label"></label>
-                    <input asp-for="SerialNumber" class="form-control font-monospace" placeholder="ACME-XXXX-XXXX-XXXX"/>
+                    <input asp-for="SerialNumber" class="form-control font-monospace"
+                           placeholder="ACME-XXXX-XXXX-XXXX"/>
                     <span asp-validation-for="SerialNumber" class="text-danger"></span>
                 </div>
 
@@ -46,14 +47,19 @@
                     <input asp-for="DateOfBirth" class="form-control" type="date"/>
                     <span asp-validation-for="DateOfBirth" class="text-danger"></span>
                 </div>
-                <button type="submit" id="submit-btn" class="btn btn-primary w-100">Submit Entry</button>
+                <button type="submit" class="btn btn-primary w-100">Submit Entry</button>
             </form>
 
         </div>
+
+    </div>
+    <!-- sjovt lille billede -->
+    <div class="d-flex justify-content-end mt-4 pe-3">
+        <img src="~/images/Acme-Catalog.png" alt="Acme Catalog" style="max-width: 300px; position: fixed; bottom: 48px; right: 0; height: auto;"/>
     </div>
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-    <script src ="js/draw-form.js"></script>
+    <partial name="_ValidationScriptsPartial"/>
+    <script src="~/js/draw-form.js"></script>
 }

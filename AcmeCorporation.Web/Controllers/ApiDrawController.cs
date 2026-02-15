@@ -7,7 +7,7 @@ using AcmeCorporation.Core.Interfaces;
 
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("/api/[controller]")]
 public class ApiDrawController : ControllerBase
 {
     private readonly IDrawService _drawService;

@@ -1,9 +1,10 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
+    
     const form = document.getElementById('draw-form');
     if (!form) return;
 
     const alertBox = document.getElementById('ajax-alert');
-    const submitButton = document.getElementById('button[type="submit"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -17,7 +18,7 @@
             dateOfBirth: document.querySelector('[name="DateOfBirth"]').value.trim()
         };
 
-        submitBtn.disabled = true;
+        submitBtn.disabled = false;
         submitBtn.textContent = 'Submitting...';
 
         try {
@@ -38,7 +39,7 @@
                 showAlert('success', data.message);
                 form.reset();
             } else {
-                showAlert('danger', data.errorMessage || 'Something went wrong.');
+                showAlert('danger', data.errorField || 'Something went wrong.');
                 if (data.errorField) {
                     highlightField(data.errorField);
                 }
@@ -65,7 +66,7 @@
     }
 
     function highlightField(fieldName) {
-        const input = form.querySelector('${fieldName}');
+        const input = form.querySelector('#${fieldName}');
         if (input) input.classList.add('is-invalid');
     }
 });
