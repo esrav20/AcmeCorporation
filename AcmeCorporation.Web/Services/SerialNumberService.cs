@@ -31,7 +31,7 @@ public class SerialNumberService : ISerialNumberService
     {
         var sn = await _dbContext.SerialNumbers
             .FirstOrDefaultAsync(s => s.Number == serialNumber);
-        sn.UseCount++;
+        if (sn != null) sn.UseCount++;
         await _dbContext.SaveChangesAsync();
     }
 }

@@ -20,6 +20,10 @@ public class DrawService : IDrawService
         // Find serial number in Database
         var serial = await _dbContext.SerialNumbers.FirstOrDefaultAsync(s => s.Number == entry.SerialNumber);
         
+        // Find amount of submissions per email
+        var emailCount = await _dbContext.Submissions
+            .CountAsync(s => s.Email.ToLower() == entry.Email.ToLower());
+        
         // is serial number valid?
         if (serial == null)
             return new DrawResult(false, "SerialNumber", "Serial number not found");
@@ -29,19 +33,12 @@ public class DrawService : IDrawService
             return new DrawResult(false, "SerialNumber", "Serial number has already been used");
         
         // has the user already entered more than once?
-        if (entry.UserId != null)
-        {
-            var userEntryCount = await _dbContext.Submissions
-                .CountAsync(s => s.UserId == entry.UserId);
-
-            if (userEntryCount >= 2)
-                return new DrawResult(false, "UserId", "You have already entered the draw twice.");
-        }
+        if (emailCount >= 2)
+            return new DrawResult(false, "Email", "You have already entered the draw twice.");
         
         // Check Age
         if (!AgeValidator.IsAdult(entry.DateOfBirth))
             return new DrawResult(false, "DateOfBirth", "You must be at least 18 years old to enter");
-        
         
         
         // If everything is alright, put serial number into submission
@@ -54,8 +51,8 @@ public class DrawService : IDrawService
             LastName = entry.LastName,
             DateOfBirth = entry.DateOfBirth,
             Email = entry.Email,
-            SerialNumberId = serialNumber.Id,
-            UserId = entry.UserId,
+            SerialNumberId = serialNumber.Id
+
 
         };
         

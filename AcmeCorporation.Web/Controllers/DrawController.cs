@@ -36,7 +36,7 @@ public class DrawController : Controller
 
         var entry = new DrawEntry(
             model.FirstName, model.LastName, model.Email,
-            model.DateOfBirth, model.SerialNumber, userId);
+            model.DateOfBirth, model.SerialNumber);
 
         var result = await _drawService.SubmitEntryAsync(entry);
 

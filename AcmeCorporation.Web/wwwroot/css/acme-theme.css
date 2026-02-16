@@ -1,0 +1,118 @@
+﻿:root {
+    --acme-red: #CC0000;
+    --acme-red-dark: #700000;
+    --acme-black: #242424;
+    --acme-white: #FFFFFF;
+    --acme-bg: #F5F5F5;
+    --acme-card: #FFFFFF;
+}
+
+/* ── Base ── */
+body {
+    background-color: var(--acme-bg);
+    color: var(--acme-black);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* ── Navbar ── */
+.navbar {
+    background-color: var(--acme-black) !important;
+    padding: 0.5rem 1rem;
+}
+.navbar .nav-link {
+    color: var(--acme-white) !important;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.navbar .nav-link:hover {
+    color: var(--acme-red) !important;
+}
+.navbar-brand img {
+    height: 36px;
+    width: auto;
+}
+
+/* ── Page heading ── */
+h2 {
+    color: var(--acme-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+}
+
+/* ── Form card ── */
+.acme-card {
+    background: var(--acme-card);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--acme-red);
+}
+
+/* ── Labels ── */
+.form-label {
+    font-weight: 600;
+    color: var(--acme-black);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── Inputs ── */
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus {
+    border-color: var(--acme-red);
+    box-shadow: 0 0 0 0.2rem rgba(204, 0, 0, 0.15);
+}
+
+/* ── Buttons ── */
+.btn-primary {
+    background-color: var(--acme-red);
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+.btn-primary:hover {
+    background-color: var(--acme-red-dark);
+    transform: translateY(-1px);
+}
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* ── Alerts ── */
+.alert {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* ── Footer ── */
+.footer {
+    background-color: var(--acme-black);
+    position: fixed;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    color: var(--acme-card) !important;
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+}
+.footer a {
+    color: var(--acme-red);
+}
+
+/* ── Divider ── */
+hr {
+    border-color: #eee;
+}

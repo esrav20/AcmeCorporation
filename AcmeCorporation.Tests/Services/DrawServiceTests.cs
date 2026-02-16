@@ -47,9 +47,9 @@ public class DrawServiceTests
     }
 
     private static DrawEntry TestEntry(
-        string serial, string? userId = "user1@acme.com") =>
+        string serial, string? email = "user1@acme.com") =>
         new("Esben", "Ravnholt", "user1@acme.com",
-            new DateTime(1990, 1, 1), serial, "user-1");
+            new DateTime(1990, 1, 1), serial);
     
     
     // TESTS FOR RULE: Serial Number can only be used 1 time
