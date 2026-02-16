@@ -7,7 +7,7 @@ using AcmeCorporation.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// === Services ===
+// Services
 builder.Services.AddControllersWithViews();
 
 // EF Core + SQL Server
@@ -71,6 +71,10 @@ using (var scope = app.Services.CreateScope())
             context.SerialNumbers.Add(new SerialNumber { Number = num });
         }
         await context.SaveChangesAsync();
+        
+        // Export Serial numbers to text file in root
+        await File.WriteAllLinesAsync("SerialNumbers.txt", numbers);
+        Console.WriteLine($"Exported {numbers.Count} serial numbers to SerialNumbers.txt");
     }
 }
 

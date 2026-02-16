@@ -226,4 +226,7 @@ C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10
 C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\ref\AcmeCorporation.Web.dll
 C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\AcmeCorporation.Web.sourcelink.json
 C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\compressed\3myyvmzjsn-{0}-s88836nrxs-s88836nrxs.gz
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\compressed\3myyvmzjsn-{0}-mw6f1d9drd-mw6f1d9drd.gz
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\bin\Debug\net10.0\Rotativa.AspNetCore.dll
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\AcmeCorporation.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Esben\RiderProjects\AcmeCorporation\AcmeCorporation.Web\obj\Debug\net10.0\compressed\lts7cfnumt-{0}-g9cm5n4r2z-g9cm5n4r2z.gz

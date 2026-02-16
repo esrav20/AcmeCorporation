@@ -1,7 +1,7 @@
 ﻿@model AcmeCorporation.Web.Models.SubmissionViewModel
 
 @{
-    ViewData["Title"] = "Prize Draw Entry";
+    ViewData["Title"] = "Prize Draw";
 }
 
 <div class="row justify-content-center mt-5 mb-5">
@@ -11,8 +11,12 @@
             <p class="text-muted mb-4">Fill in your details and product serial number</p>
             <hr/>
 
-            <div id="ajax-alert" class="alert d-none"></div>
+            <div id="ajax-alert" class="alert d-none" role="alert"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
             <form id="draw-form" asp-action="Index" method="post">
+                @Html.AntiForgeryToken()
+
                 <div class="mb-3">
                     <label asp-for="FirstName" class="form-label"></label>
                     <input asp-for="FirstName" class="form-control"/>
@@ -33,7 +37,8 @@
 
                 <div class="mb-3">
                     <label asp-for="SerialNumber" class="form-label"></label>
-                    <input asp-for="SerialNumber" class="form-control font-monospace" placeholder="ACME-XXXX-XXXX-XXXX"/>
+                    <input asp-for="SerialNumber" class="form-control font-monospace"
+                           placeholder="ACME-XXXX-XXXX-XXXX"/>
                     <span asp-validation-for="SerialNumber" class="text-danger"></span>
                 </div>
 
@@ -42,68 +47,19 @@
                     <input asp-for="DateOfBirth" class="form-control" type="date"/>
                     <span asp-validation-for="DateOfBirth" class="text-danger"></span>
                 </div>
-                <button type="submit" id="submit-btn" class="btn btn-primary w-100">Submit Entry</button>
+                <button type="submit" class="btn btn-primary w-100">Submit Entry</button>
             </form>
 
         </div>
+
+    </div>
+    <!-- sjovt lille billede -->
+    <div class="d-flex justify-content-end mt-4 pe-3">
+        <img src="~/images/Acme-Catalog.png" alt="Acme Catalog" style="max-width: 300px; position: fixed; bottom: 48px; right: 0; height: auto;"/>
     </div>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        document.getElementById('draw-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const form = e.target;
-
-            const button = document.getElementById('submit-btn');
-            const alert = document.getElementById('ajax-alert');
-
-            if (typeof $ !== 'undefined' && !$(form).valid()) return;
-
-            button.disabled = true;
-            button.textContent = 'Submitting...';
-            alert.classList.add('d-none');
-
-            const payload = {
-                firstName: document.querySelector('[name="FirstName"]').value,
-                lastName: document.querySelector('[name="LastName"]').value,
-                email: document.querySelector('[name="Email"]').value,
-                serialNumber: document.querySelector('[name="SerialNumber"]').value,
-                dateOfBirth: document.querySelector('[name="DateOfBirth"]').value,
-            };
-
-            try {
-                const token = document.querySelector('[name="__RequestVerificationToken"]').value;
-                const response = await fetch('/api/draw', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'RequestVerificationToken': token
-                    },
-                    body: JSON.stringify(payload)
-                });
-                const data = await response.json();
-
-                if (response.ok && data.success){
-                    alert.className = 'alert alert-success';
-                    alert.textContent = 'Your entry has been submitted successfully!';
-                    form.reset();
-                } else {
-                    alert.className = 'alert alert-danger';
-                    alert.textContent = 'Something went wrong!';
-
-                }
-            } catch {
-                alert.className = 'alert alert-danger';
-                alert.textContent = 'Something went wrong.';
-            }
-            alert.classList.remove('d-none');
-            button.disabled = false;
-            button.textContent = 'Submit Entry';
-
-        });
-
-    </script>
+    <partial name="_ValidationScriptsPartial"/>
+    <script src="~/js/draw-form.js"></script>
 }

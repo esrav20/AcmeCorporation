@@ -100,8 +100,12 @@ h2 {
 /* ── Footer ── */
 .footer {
     background-color: var(--acme-black);
+    position: fixed;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
     color: var(--acme-card) !important;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     font-size: 0.85rem;
 }
 .footer a {
