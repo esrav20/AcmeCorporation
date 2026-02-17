@@ -1,12 +1,11 @@
 # Acme Corporation – Prize Draw
 
 An ASP.NET web application for Acme Corporation's prize draw campaign. 
-Customers can enter the draw twice using a valid product serial number.
+Customers can enter the draw twice using valid product serial numbers.
 
 Built with .NET 10, EF Core, and SQL Server.
 
-## Prerequisites
-
+## Stack
 - .NET 10 SDK
 - SQL Server (local instance)
 - EF Core CLI
@@ -14,11 +13,11 @@ Built with .NET 10, EF Core, and SQL Server.
 ## Project Structure
 
 - **AcmeCorporation.Web** - ASP.NET MVC web application.
-  - Models 
+  - ViewModels 
   - Controllers
   - Views
-  - DI setup (EF Core)
   - Services
+  - Depency registration 
 - **AcmeCorporation.Core** - Class library
   - Models
   - Service interfaces
