@@ -1,25 +1,64 @@
 # Acme Corporation – Prize Draw
 
+An ASP.NET web application for Acme Corporation's prize draw campaign. 
+Customers can enter a draw using a valid product serial number.
+
+Built with .NET 10, EF Core, and SQL Server.
+
 ## Prerequisites
 
 - .NET 10 SDK
-- SQL Server installed locally
+- SQL Server (local instance)
 - EF Core CLI
 
-## Clone Repository
+## Project Structure
+
+- **AcmeCorporation.Web** - ASP.NET MVC web application.
+  - Models 
+  - Controllers
+  - Views
+  - DI setup (EF Core)
+  - Services
+- **AcmeCorporation.Core** - Class library
+  - Models
+  - Service interfaces
+  - Validators
+- **AcmeCorporation.Tests**
+  - Unit tests
+
+## Getting Started
+
+### 1. Database
+
+Create a local SQL Server database:
+```sql
+CREATE DATABASE AcmeCorporationDb;
+```
+
+Then update the connection string in `AcmeCorporation.Web/appsettings.json` to match your SQL Server instance:
+```json
+"ConnectionStrings": {
+	    "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=AcmeCorporationDb;Trusted_Connection=True;TrustServerCertificate=True"
+```
+
+### 2. Build & Test
 
 ```bash
 # Clone repo
+
 git clone https://github.com/esrav20/AcmeCorporation.git
 
 cd AcmeCorporation
 
 # Build project
 dotnet build
+
 # Run tests
 dotnet test
+```
 
-# Go to Web app to update the database and run the site
+### 3. Run 
+```bash
 cd AcmeCorporation.Web
 
 dotnet ef database update
@@ -27,26 +66,8 @@ dotnet ef database update
 # Run web-app
 dotnet run
 
-# App should be running on port 5265 in http and 7175 on https
-https://localhost:7175
+# App will be available on port 5265
 http://localhost:5265
 ```
-
-## Database Setup
-
-Create a local SQL Server database before running any migrations.
-
-Mine is hosted on localhost\SQLEXPRESS, but adjust *appsettings.json* to match your SQL Server path after creating database
-
-```sql
-CREATE DATABASE AcmeCorporationDb;
-```
-
-```java
-"ConnectionStrings": {
-	    "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=AcmeCorporationDb;Trusted_Connection=True;TrustServerCertificate=True"
-```
-
----
 
 On first run, 100 serial numbers are seeded into the database and exported to `SerialNumbers.txt`.
