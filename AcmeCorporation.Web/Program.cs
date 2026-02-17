@@ -57,11 +57,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Draw}/{action=Index}/{id?}");
 
-// Seeding serial number
+// Seeding serial numbers
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    context.Database.Migrate(); // Adds pending migrations, if any
+    context.Database.Migrate(); // Adds database migrations, if any
 
     if (!context.SerialNumbers.Any())
     {
@@ -72,7 +72,7 @@ using (var scope = app.Services.CreateScope())
         }
         await context.SaveChangesAsync();
         
-        // Export Serial numbers to text file in root
+        // Export Serial numbers to .txt in root
         await File.WriteAllLinesAsync("SerialNumbers.txt", numbers);
         Console.WriteLine($"Exported {numbers.Count} serial numbers to SerialNumbers.txt");
     }
