@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj": {}
+    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
+    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
         "projectName": "AcmeCorporation.Core",
-        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
+        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
         "packagesPath": "C:\\Users\\Esben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\obj\\",
+        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esben\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -367,14 +367,14 @@
         }
       }
     },
-    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj": {
+    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj",
         "projectName": "AcmeCorporation.Tests",
-        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj",
+        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Tests\\AcmeCorporation.Tests.csproj",
         "packagesPath": "C:\\Users\\Esben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Tests\\obj\\",
+        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esben\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -389,11 +389,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
-                "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj"
+              "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
+                "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj"
               },
-              "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj": {
-                "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj"
+              "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj": {
+                "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj"
               }
             }
           }
@@ -418,9 +418,17 @@
               "target": "Package",
               "version": "[8.8.0, )"
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[10.0.2, )"
+              "version": "[10.0.3, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -737,14 +745,14 @@
         }
       }
     },
-    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj": {
+    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj",
+        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj",
         "projectName": "AcmeCorporation.Web",
-        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj",
+        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Web\\AcmeCorporation.Web.csproj",
         "packagesPath": "C:\\Users\\Esben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Web\\obj\\",
+        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esben\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -759,8 +767,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
-                "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj"
+              "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
+                "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj"
               }
             }
           }
@@ -785,6 +793,10 @@
               "target": "Package",
               "version": "[10.0.3, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -800,10 +812,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[10.0.3, )"
-            },
-            "Rotativa.AspNetCore": {
-              "target": "Package",
-              "version": "[1.4.0, )"
             }
           },
           "imports": [

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {}
+    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
+    "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
         "projectName": "AcmeCorporation.Core",
-        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
+        "projectPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\AcmeCorporation.Core.csproj",
         "packagesPath": "C:\\Users\\Esben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation\\AcmeCorporation.Core\\obj\\",
+        "outputPath": "C:\\Users\\Esben\\RiderProjects\\AcmeCorporation_2\\AcmeCorporation.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esben\\AppData\\Roaming\\NuGet\\NuGet.Config"
