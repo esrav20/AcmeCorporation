@@ -8,12 +8,12 @@ namespace AcmeCorporation.Web.Services;
 
 public class DrawService : IDrawService
 {
-    // Dependency Injection of AppDbContext and SerialNumberService
+    // Dependency Injection of AppDbContext and ISerialNumberService
     private readonly AppDbContext _dbContext;
-    private readonly SerialNumberService _serialNumberService;
+    private readonly ISerialNumberService _serialNumberService;
 
     // Constructor
-    public DrawService(AppDbContext dbContext, SerialNumberService serialNumberService)
+    public DrawService(AppDbContext dbContext, ISerialNumberService serialNumberService)
     {
         _dbContext = dbContext;
         _serialNumberService = serialNumberService;

@@ -56,7 +56,8 @@ public class DrawServiceTests
     public async Task SubmitSucceedsFirstTimeWithSerial()
     {
         var db = TestDb();
-        var svc = new DrawService(db);
+        var sn = new SerialNumberService(db);
+        var svc = new DrawService(db, sn);
         
         var result = await svc.SubmitEntryAsync(TestEntry("ACME-TEST-0000-0001"));
         
@@ -67,8 +68,8 @@ public class DrawServiceTests
     public async Task SubmitFailsSecondTimeWithSerial()
     {
         var db = TestDb();
-        
-        var svc = new DrawService(db);
+        var sn = new SerialNumberService(db);
+        var svc = new DrawService(db, sn);
         
         // First use
         await svc.SubmitEntryAsync(TestEntry("ACME-TEST-0000-0001", "user1@acme.com"));
@@ -86,7 +87,8 @@ public class DrawServiceTests
     public async Task Draw_Succeeds_SecondTime()
     {
         var db = TestDb();
-        var svc = new DrawService(db);
+        var sn = new SerialNumberService(db);
+        var svc = new DrawService(db, sn);
         
         await svc.SubmitEntryAsync(
             TestEntry("ACME-TEST-0000-0001", "user1@acme.com"));
@@ -100,7 +102,8 @@ public class DrawServiceTests
     public async Task Draw_Fails_ThirdTime()
     {
         var db = TestDb();
-        var svc = new DrawService(db);
+        var sn = new SerialNumberService(db);
+        var svc = new DrawService(db, sn);
         
         // The first two entries should succeed
         await svc.SubmitEntryAsync(

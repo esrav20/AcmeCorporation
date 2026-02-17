@@ -32,7 +32,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
-// Dependency INjection
+// Dependency registration
 builder.Services.AddScoped<ISerialNumberService, SerialNumberService>();
 builder.Services.AddScoped<IDrawService, DrawService>();
 
