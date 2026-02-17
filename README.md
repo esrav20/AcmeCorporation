@@ -16,20 +16,19 @@ cd AcmeCorporation
 
 # Build project
 dotnet build
+# Run tests
+dotnet test
 
 # Go to Web app to update the database and run the site
 cd AcmeCorporation.Web
 
 dotnet ef database update
 
-cd AcmeCorporation
-# Run tests
-dotnet test
-
 # Run web-app
 dotnet run
 
-# App should be running on port 5265
+# App should be running on port 5265 in http and 7175 on https
+https://localhost:7175
 http://localhost:5265
 ```
 
