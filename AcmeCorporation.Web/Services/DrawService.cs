@@ -9,10 +9,12 @@ namespace AcmeCorporation.Web.Services;
 public class DrawService : IDrawService
 {
     private readonly AppDbContext _dbContext;
+    private readonly SerialNumberService _serialNumberService;
 
-    public DrawService(AppDbContext dbContext)
+    public DrawService(AppDbContext dbContext, SerialNumberService serialNumberService)
     {
         _dbContext = dbContext;
+        _serialNumberService = serialNumberService;
     }
 
     public async Task<DrawResult> SubmitEntryAsync(DrawEntry entry)
@@ -59,7 +61,7 @@ public class DrawService : IDrawService
         _dbContext.Submissions.Add(submission);
         
         // Increment the use count for serial number
-        serial.UseCount++;
+        await _serialNumberService.IncrementUseCountAsync(entry.SerialNumber);
         
         await _dbContext.SaveChangesAsync();
 
