@@ -2,15 +2,16 @@
 using AcmeCorporation.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace AcmeCorporation.Web.Controllers;
 
 public class AccountController : Controller
 {
+    // Dependency Injection of UserManager and SignInManager
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
+    // Constructor
     public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
     {
         _userManager = userManager;
@@ -27,6 +28,8 @@ public class AccountController : Controller
     {
         if (!ModelState.IsValid)
             return View(model);
+        
+        // Create user
         var user = new ApplicationUser
         {
             UserName = model.Email,

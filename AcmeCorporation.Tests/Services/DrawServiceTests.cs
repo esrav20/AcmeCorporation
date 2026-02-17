@@ -5,13 +5,12 @@ using AcmeCorporation.Web.Data;
 using AcmeCorporation.Web.Services;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
 namespace AcmeCorporation.Tests.Services;
 
 public class DrawServiceTests
 {
-    // Creating a local database context, to not interfere with Docker hosted database.
+    // Creating a local database context, to not interfere with database.
     private static AppDbContext TestDb()
     {
         var options = new DbContextOptionsBuilder<AppDbContext>()
@@ -68,12 +67,13 @@ public class DrawServiceTests
     public async Task SubmitFailsSecondTimeWithSerial()
     {
         var db = TestDb();
+        
         var svc = new DrawService(db);
         
         // First use
         await svc.SubmitEntryAsync(TestEntry("ACME-TEST-0000-0001", "user1@acme.com"));
         
-        // Second use, should fail
+        // Second use should fail
         var result = await svc.SubmitEntryAsync(TestEntry("ACME-TEST-0000-0001", "user2@acme.com"));
         
         result.Success.Should().BeFalse();
@@ -102,13 +102,13 @@ public class DrawServiceTests
         var db = TestDb();
         var svc = new DrawService(db);
         
-        // First two entries, should succeed
+        // The first two entries should succeed
         await svc.SubmitEntryAsync(
             TestEntry("ACME-TEST-0000-0001", "user1@acme.com"));
         await svc.SubmitEntryAsync(
             TestEntry("ACME-TEST-0000-0002", "user1@acme.com"));
         
-        // Third entry, should fail
+        // The third entry should fail
         var result = await svc.SubmitEntryAsync(TestEntry("ACME-TEST-0000-0003", "user1@acme.com"));
         
         result.Success.Should().BeFalse();

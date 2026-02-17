@@ -4,6 +4,7 @@ namespace AcmeCorporation.Core.Data;
 
 public class SerialNumber
 {
+    // PK
     public int Id { get; set; }
     
     [Required]
@@ -15,6 +16,7 @@ public class SerialNumber
     public int MaxUseCount { get; set; } = 1;
     
     public bool IsValid =>  UseCount < MaxUseCount;
-
+    
+    // FK -> DrawSubmission
     public ICollection<DrawSubmission> Submissions { get; set; } = new List<DrawSubmission>();
 }

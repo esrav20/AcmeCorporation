@@ -8,15 +8,18 @@ namespace AcmeCorporation.Web.Services;
 
 public class DrawService : IDrawService
 {
+    // Dependency Injection of AppDbContext and SerialNumberService
     private readonly AppDbContext _dbContext;
     private readonly SerialNumberService _serialNumberService;
 
+    // Constructor
     public DrawService(AppDbContext dbContext, SerialNumberService serialNumberService)
     {
         _dbContext = dbContext;
         _serialNumberService = serialNumberService;
     }
 
+    // Submits a new entry to the draw
     public async Task<DrawResult> SubmitEntryAsync(DrawEntry entry)
     {
         // Find serial number in Database
@@ -47,6 +50,7 @@ public class DrawService : IDrawService
         var serialNumber = await _dbContext.SerialNumbers
             .FirstAsync(s => s.Number == entry.SerialNumber);
 
+        // Create submission with data
         var submission = new DrawSubmission
         {
             FirstName = entry.FirstName,
@@ -58,13 +62,16 @@ public class DrawService : IDrawService
 
         };
         
+        // Add submission to database
         _dbContext.Submissions.Add(submission);
         
-        // Increment the use count for serial number
+        // Increment the use count for serial number in database
         await _serialNumberService.IncrementUseCountAsync(entry.SerialNumber);
         
+        // Save changes asynchronously
         await _dbContext.SaveChangesAsync();
-
+    
+        // Return success
         return new DrawResult(true, null, null);
     }
 

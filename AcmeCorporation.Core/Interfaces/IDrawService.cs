@@ -14,6 +14,8 @@ public record DrawResult(
 
 public interface IDrawService
 {
+    // Contract for DrawService
+    
     Task<DrawResult> SubmitEntryAsync(DrawEntry entry);
 
 }

@@ -8,8 +8,10 @@ namespace AcmeCorporation.Web.Controllers;
 
 public class DrawController : Controller
 {
+    // Dependency Injection of IDrawService
     private readonly IDrawService _drawService;
 
+    // Constructor
     public DrawController(IDrawService drawService)
     {
         _drawService = drawService;
@@ -31,15 +33,16 @@ public class DrawController : Controller
             ModelState.AddModelError("DateOfBirth", "You must be at least 18 years old.");
             return View(model);
         }
-
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
+        
+        // Create DrawEntry
         var entry = new DrawEntry(
             model.FirstName, model.LastName, model.Email,
             model.DateOfBirth, model.SerialNumber);
 
+        // Submit entry
         var result = await _drawService.SubmitEntryAsync(entry);
 
+        // Return result
         if (!result.Success)
         {
             ModelState.AddModelError(result.ErrorField ?? "", result.ErrorMessage ?? "An error occurred.");
@@ -49,5 +52,6 @@ public class DrawController : Controller
         return RedirectToAction(nameof(Success));
     }
 
+    // GET: /Draw/Success
     public IActionResult Success() => View();
 }

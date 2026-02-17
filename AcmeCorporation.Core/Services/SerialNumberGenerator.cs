@@ -4,6 +4,11 @@ public static class SerialNumberGenerator
 {
     public static List<string> Generate(int count = 100)
     {
+        // Randomly generate serial numbers
+        // based on chars A-Z, 0-9
+        // 4 segments of 4 chars each,
+        // the first must be == ACME
+        
         var random = new Random();
         return Enumerable.Range(0, count)
             .Select(_ => $"ACME-{Segment(random)}-{Segment(random)}-{Segment(random)}")

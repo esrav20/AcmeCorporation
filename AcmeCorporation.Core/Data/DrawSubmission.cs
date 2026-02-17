@@ -2,11 +2,11 @@
 
 namespace AcmeCorporation.Core.Data;
 
-
 public class DrawSubmission
 {
+    // PK
     public int Id { get; set; }
-
+    
     [Required] 
     [StringLength(100)] 
     public string FirstName { get; set; } = string.Empty;

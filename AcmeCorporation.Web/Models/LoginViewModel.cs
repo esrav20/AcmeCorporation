@@ -4,6 +4,9 @@ namespace AcmeCorporation.Web.Models;
 
 public class LoginViewModel
 {
+    // Login must contain:
+    // Email Address and Password
+    
     [Required, EmailAddress]
     public string Email { get; set; } = string.Empty;
 

@@ -4,6 +4,10 @@ namespace AcmeCorporation.Web.Models;
 
 public class SubmissionViewModel
 {
+    // Submission must contain:
+    // First Name, Last Name, Email Address,
+    // Product Serial Number and Date of Birth
+    
     [Required]
     [StringLength(100)]
     [Display(Name = "First Name")]
