@@ -13,3 +13,17 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+# Build output
+bin/
+obj/
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+# Secrets / local settings
+appsettings.Development.json
+*.secrets.json
+# OS
+.DS_Store
+Thumbs.db
