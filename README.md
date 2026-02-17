@@ -1,7 +1,7 @@
 # Acme Corporation – Prize Draw
 
 An ASP.NET web application for Acme Corporation's prize draw campaign. 
-Customers can enter a draw using a valid product serial number.
+Customers can enter the draw twice using a valid product serial number.
 
 Built with .NET 10, EF Core, and SQL Server.
 
