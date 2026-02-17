@@ -52,6 +52,10 @@ cd AcmeCorporation
 # Build project
 dotnet build
 
+cd AcmeCorporation.Web
+# Create Migrations here
+dotnet ef migrations add InitialCreate
+
 # Run tests
 dotnet test
 ```
