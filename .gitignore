@@ -1,29 +1,40 @@
-﻿# Default ignored files
+﻿# JetBrains 
+.idea/
+
+# Default ignored files
 /shelf/
 /workspace.xml
+
 # Rider ignored files
 /contentModel.xml
 /.idea.AcmeCorporation.iml
 /modules.xml
 /projectSettingsUpdater.xml
+
 # Ignored default folder with query files
 /queries/
+
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
 # Editor-based HTTP Client requests
 /httpRequests/
+
 # Build output
 bin/
 obj/
+
 # User-specific files
 *.user
 *.suo
-*.userosscache
+*.userossscache
 *.sln.docstates
+
 # Secrets / local settings
 appsettings.Development.json
 *.secrets.json
+
 # OS
 .DS_Store
 Thumbs.db
